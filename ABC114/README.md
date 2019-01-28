@@ -136,6 +136,8 @@ void div(int x) {
     }
 ```
 
-`a[i - 1][j]` means use the number  from $1$ to $i$, and use them $j​$ times in total.
+`a[i - 1][j]` means use the number  from $1$ to $i-1$, and use them $j$ times in total.
 
 `a[i][j * (k + 1)]` means based on the `a[i - 1][j]`, add the factor $i$ and use it $k$ times(multiply $i^k$). 
+
+The answer is `a[n][75]`.

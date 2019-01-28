@@ -1,4 +1,4 @@
-### **ABC115 D**
+## ABC115 D
 A legal burger: 
 
 $$Level(0) = P$$
@@ -11,7 +11,7 @@ input $N$ and $X$, output the number of $P$ layer in the bottom-most $X$ layers 
 
 There are $4$ patties in the bottom-most $7$ layers of a $Level \space 2$ burger ($BBPPPBPBPPPBB$).
 
-#### `Mathematics Problem solution`
+### Mathematics Problem solution
 
 Char String, calculate the length of $Level \space n$
 
@@ -23,17 +23,17 @@ $$ f(n) = 2^{n+2} - 3$$
 $$ p(n,n) = 2 \times p(n-1,n-1) + 1$$
 $$ p(n,n) = 2^{n+1}-1 $$
 
-#### `Classification in Recursion`
+### Classification in Recursion
 
-$$ p(n,x) = 
-\begin{cases} 
-p(n-1,x-1),&x<2^{n+1}-2 \\ 
-2^{n}-1+1+p(n-1,x-(2^{n+1}-2)),&2^{n+1}-2 \le x\le 2^{n+2}-3  \\
-2^{n+1}-1,&x=2^{n+2}-3
-\end{cases} 
-$$
+$$ while\, x<2^{n+1}-2:\,\,\, p(n,x) = p(n-1, x-1); $$
 
-#### `Boundary conditions in Recursion`
+$$ while\, 2^{n+1}-2 \le x\le 2^{n+2}-3:\,\,\, p(n,x) = 2^{n}-1+1+p(n-1,x-(2^{n+1}-2)) ​$$
+
+
+$$ while\, x=2^{n+2}-3:\,\,\, p(n,x) = 2^{n+1}-1 $$
+
+
+### Boundary conditions in Recursion
 - The boundary conditions in `p(n,x)`, `x` has a higher priority because while `n == 0 && x == 0`, we should return 0 but not 1 
 ```c
 if (x == 0)
@@ -44,7 +44,7 @@ if (n == 0)
 - We can merge the second and the third case in $p(n,x)$ if we let `x = min(x, 1ll << (n + 2) - 3)`
 
 
-#### `Attention`
+### Caution
 
 - Don't use `long long int`, use `typedef long long ll;`
 - $1\le N\le 50$, $2^{N} \ge 2^{32}$, use `long long` not `int` when we assign the `p(n, x)`,`x`
