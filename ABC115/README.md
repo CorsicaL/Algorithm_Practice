@@ -25,12 +25,12 @@ $$ p(n,n) = 2^{n+1}-1 $$
 
 ### Classification in Recursion
 
-$$ while\, x<2^{n+1}-2:\,\,\, p(n,x) = p(n-1, x-1); $$
+$$ while\, x<2^{n+1}-2: p(n,x) = p(n-1, x-1); ​$$
 
-$$ while\, 2^{n+1}-2 \le x\le 2^{n+2}-3:\,\,\, p(n,x) = 2^{n}-1+1+p(n-1,x-(2^{n+1}-2)) ​$$
+$$ while\, 2^{n+1}-2 \le x\le 2^{n+2}-3: p(n,x) = 2^{n}-1+1+p(n-1,x-(2^{n+1}-2)) $$
 
 
-$$ while\, x=2^{n+2}-3:\,\,\, p(n,x) = 2^{n+1}-1 $$
+$$ while\, x=2^{n+2}-3: p(n,x) = 2^{n+1}-1 ​$$
 
 
 ### Boundary conditions in Recursion
@@ -41,7 +41,7 @@ if (x == 0)
 if (n == 0)
     return 1;
 ```
-- We can merge the second and the third case in $p(n,x)$ if we let `x = min(x, 1ll << (n + 2) - 3)`
+- We can merge the second and the third case in $p(n,x)​$ if we let `x = min(x, 1ll << (n + 2) - 3)`
 
 
 ### Caution
